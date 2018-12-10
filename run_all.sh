@@ -29,7 +29,7 @@ sh_ods_interface_unzip()
 {
 echo "begin $tablename ods_interface_unzip.sh"  
 cd $workpath/shell
-sh unzip.sh $tablename  $flag $fdate
+sh file_unzip.sh $tablename  $flag $fdate
 if [ $? != 0 ] ; then
     echo "ods_interface_unzip.sh failed!"
     return 1
@@ -41,7 +41,7 @@ sh_ods_interface_load()
 {
 echo "begin $tablename ods_interface_load.sh" 
 cd $workpath/shell
-sh load_file.sh $tablename $flag $fdate
+sh file_load.sh $tablename $flag $fdate
 
 if [ $? != 0 ] ; then
     echo "ods_interface_load.sh failed!" 
