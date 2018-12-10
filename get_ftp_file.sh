@@ -5,7 +5,7 @@
 ###########################################################################################
 #######################FTP函数,实现mget功能,单表进行ftp
 ftpfile(){
-lftp -u ${serveruser},${serverpass} sftp://${serverip} <<!   ##modify by  sun 20160425  modify IP address
+lftp -u ${serveruser},${serverpass} sftp://${serverip} <<!   
 #cd  /odsdata/swap/data/ods/${filedate}
  cd ${remotedir}/${filedate}
 mget  *${filename}*.*${filedate}.*
