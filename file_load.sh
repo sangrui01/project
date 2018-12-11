@@ -76,7 +76,12 @@ do
 	taskstarttime=`date "+%Y-%m-%d %H:%M:%S"`
 ###################开始装载
 	echo "Load Start!"
+	starttime=`date +"%Y-%m-%d H%:%M:%D"`
 	sqlldr $db_server control=$workpath/ddl/${tablename}.ctl log=$workpath/logs/${tablename}.log bad=$workpath/badfile/${tablename}.bad direct=Y  rows=10000 readsize=20680000 bindsize=20680000
+	endtime=`date +"%Y-%m-%d H%:%M:%D"`
+	start_seconds=$(date --date=${starttime} +%s)
+	end_seconds=$(date --date=${endtime} +%s)
+	echo "本次运行时间： "$((end_seconds-start_seconds))"s"
 	get_loadcnt
 #######################判断成功装载记录filecnt和ftp记录数fileftpcnt为空处理,
 #######################如果装载日志没有成功,则获取的装载成功日志为空，卸载记录和装载记录无法比较
